@@ -1,0 +1,41 @@
+swagger: "2.0"
+
+info:
+  version: 0.1.0
+  title: go-server
+  description: HTTP server in Go with swagger endpoint definition
+  contact:
+    name: vishwa
+
+schemes:
+  - http
+
+consumes:
+  - application/json
+
+produces:
+  - application/json
+
+paths:
+  /users/{id}:
+    parameters:
+      - name: id
+        in: path
+        type: string
+        description: |
+          An identifier of the user.
+        required: true
+    get:
+      summary: Get
+      description: Return the detials of a user.
+      tags:
+        - GoSwagger/Users
+      responses:
+        200:
+          description: OK
+          schema:
+            type: string
+        400:
+          description: Invalid user id supplied.
+
+
